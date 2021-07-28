@@ -65,16 +65,18 @@ namespace Crud.With.Inyector
 
         private void EditProduct_Click(object sender, EventArgs e)
         {
+            var frmproduct = Program.servicesProvider.GetService<FrmProduct>();
             Program.id= getid();
             if (Program.id != null)
             {
-               var frmproduct= Program.servicesProvider.GetService<FrmProduct>();
+               
                 
                 frmproduct.ShowDialog();
 
             }
             dataProduct.LoadDataProduct(DataGridProduct);
             Program.id = null;
+            frmproduct.ClearInput();
 
         }
 
